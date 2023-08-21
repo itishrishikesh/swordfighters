@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sword Fighters!</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="webjars\bootstrap\5.1.3\css\bootstrap.min.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -15,24 +14,24 @@
       <h1 class="text-center">Welcome to Sword Fighters club!</h1>
       <div class="row justify-content-center d-flex mt-5">
         <div class="col-6">
-          <form>
+          <form method='post'>
             <div class="mb-3">
               <label for="name" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
+              <input type="email" class="form-control" name="username" aria-describedby="emailHelp" />
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password">
+              <input type="password" class="form-control" name="password" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <input type="submit" class="btn btn-primary"></input>
+            <div class="text-danger mb-5" role="alert">${error}</div>
           </form>
         </div>
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"></script>
+    <script src="webjars\bootstrap\5.1.3\js\bootstrap.min.js"></script>
+    <script src="webjars\jquery\3.6.0\js\jquery.min.js"></script>
   </body>
 
 </html>
