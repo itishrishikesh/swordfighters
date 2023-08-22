@@ -6,24 +6,34 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 @Service
 public class SwordEventService {
-    private static final List<SwordEvents> swordEvents = new ArrayList<>();
+    private static final List<SwordEvent> SWORD_EVENTS = new ArrayList<>();
     static {
-        swordEvents.add(new SwordEvents(swordEvents.size() + 1, "Jerry", "Tom", "Jerry is fighting Tom", "admin", LocalDate.now().plusDays(10), false));
-        swordEvents.add(new SwordEvents(swordEvents.size() + 1, "Tom", "Jerry", "Tom is fighting Jerry", "admin", LocalDate.now().plusDays(20), false));
-        swordEvents.add(new SwordEvents(swordEvents.size() + 1, "Jerry", "Tom", "Jerry is fighting Tom", "admin", LocalDate.now().plusDays(30), false));
+        SWORD_EVENTS.add(new SwordEvent(SWORD_EVENTS.size() + 1, "Jerry", "Tom", "Jerry is fighting Tom", "admin", LocalDate.now().plusDays(10), false));
+        SWORD_EVENTS.add(new SwordEvent(SWORD_EVENTS.size() + 1, "Tom", "Jerry", "Tom is fighting Jerry", "admin", LocalDate.now().plusDays(20), false));
+        SWORD_EVENTS.add(new SwordEvent(SWORD_EVENTS.size() + 1, "Jerry", "Tom", "Jerry is fighting Tom", "admin", LocalDate.now().plusDays(30), false));
     }
 
-    public List<SwordEvents> getSwordEvents() {
-        System.out.println("SwordEventService.getSwordEvents: " + swordEvents);
-        return Collections.unmodifiableList(swordEvents);
+    public List<SwordEvent> getSwordEvents() {
+        System.out.println("SwordEventService.getSwordEvents: " + SWORD_EVENTS);
+        return Collections.unmodifiableList(SWORD_EVENTS);
     }
 
-    public void addSwordEvent(String defender, String challenger, String description, String username, LocalDate date, boolean completed) {
-        SwordEvents swordEvent = new SwordEvents(swordEvents.size() + 1, defender, challenger, description, username, date, completed);
-        swordEvents.add(swordEvent);
+    public void addSwordEvent(String defender, String challenger, String description, String username, LocalDate date, boolean done) {
+        SwordEvent swordEvent = new SwordEvent(SWORD_EVENTS.size() + 1, defender, challenger, description, username, date, done);
+        SWORD_EVENTS.add(swordEvent);
+    }
+
+    public void deleteSwordEvent(int id) {
+        Predicate<? super SwordEvent> predicate = (swordEvent) -> swordEvent.getId() == id;
+        SWORD_EVENTS.removeIf(predicate);
+    }
+
+    public SwordEvent updateSwordEvent(int id) {
+        return SWORD_EVENTS.stream().filter(e -> e.getId() == id).findFirst().get();
     }
 }
 

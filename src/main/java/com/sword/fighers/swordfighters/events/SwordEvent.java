@@ -1,18 +1,21 @@
 package com.sword.fighers.swordfighters.events;
 
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 
-public class SwordEvents {
+public class SwordEvent {
 
     private int id;
     private String defender;
     private String challenger;
+    @Size(min = 10, message = "Description should have at least 10 characters")
     private String description;
     private String adminUserName;
     private LocalDate scheduledDate;
     private boolean done;
 
-    public SwordEvents(int id, String defender, String challenger, String description, String adminUserName, LocalDate scheduledDate, boolean done) {
+    public SwordEvent(int id, String defender, String challenger, String description, String adminUserName, LocalDate scheduledDate, boolean done) {
         this.id = id;
         this.defender = defender;
         this.challenger = challenger;

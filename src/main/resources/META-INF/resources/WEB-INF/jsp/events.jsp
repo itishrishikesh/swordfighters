@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sword Fighters!</title>
       <link href="webjars\bootstrap\5.1.3\css\bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
 
 <div class='container'>
-    <h3 class='display-3'> List of upcoming events! </h3>
+    <h3 class='display-3 mt-3'> List of upcoming events! </h3>
     <table class='table mt-5'>
         <thead>
             <tr>
@@ -22,6 +23,7 @@
                 <th>description</th>
                 <th>date</th>
                 <th>done</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +35,10 @@
                     <td>${event.description}</td>
                     <td>${event.scheduledDate}</td>
                     <td>${event.done}</td>
+                    <td>
+                        <a href="/update-event/${event.id}" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a>
+                        <a href="/delete-event/${event.id}" class="btn btn-danger"><i class="fa-solid fa-xmark"></i></a>
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>
