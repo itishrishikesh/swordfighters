@@ -49,7 +49,7 @@ public class SwordEventController {
                 event.getChallenger(),
                 event.getDescription(),
                 modelMap.get("username").toString(),
-                LocalDate.now(),
+                event.getScheduledDate(),
                 false
         );
         return "redirect:events";
@@ -66,5 +66,14 @@ public class SwordEventController {
         model.addAttribute("event", swordEventService.updateSwordEvent(id));
         model.put("event", swordEventService.updateSwordEvent(id));
         return "event";
+    }
+
+    @RequestMapping(value = "/update-event/{id}", method = RequestMethod.POST)
+    public String updateEventPost(@PathVariable("id") int id, @Valid SwordEvent event, BindingResult bindingResult) {
+        if(bindingResult.hasErrors())
+            return "event";
+        event.setId(id);
+        swordEventService.updateSwordEvent(id, event);
+        return "redirect:/events";
     }
 }

@@ -1,5 +1,6 @@
 package com.sword.fighers.swordfighters.events;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -34,6 +35,11 @@ public class SwordEventService {
 
     public SwordEvent updateSwordEvent(int id) {
         return SWORD_EVENTS.stream().filter(e -> e.getId() == id).findFirst().get();
+    }
+
+    public void updateSwordEvent(int id, @Valid SwordEvent event) {
+        deleteSwordEvent(id);
+        SWORD_EVENTS.add(event);
     }
 }
 
