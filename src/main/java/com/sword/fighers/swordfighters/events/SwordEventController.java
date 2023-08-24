@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,17 +23,18 @@ public class SwordEventController {
     @Autowired
     private SwordEventService swordEventService;
 
-    @RequestMapping("/events")
+    @RequestMapping("/")
     public String events(Model model) {
         model.addAttribute("events", swordEventService.getSwordEvents());
         logger.info("model.getAttribute(\"events\") = " + model.getAttribute("events"));
         return "events";
     }
+   
 
     @RequestMapping(value = "/add-event", method = RequestMethod.GET)
     public String showAddEventForm(ModelMap model) {
         SwordEvent event = new SwordEvent(0, "", "", "",
-                model.get("username").toString(),
+                "",
                 LocalDate.now().plusDays(100), false);
         model.put("event", event);
         return "event";
@@ -75,5 +77,9 @@ public class SwordEventController {
         event.setId(id);
         swordEventService.updateSwordEvent(id, event);
         return "redirect:/events";
+    }
+    
+    private String getUserIdFromSpringSecurity() {
+    	return SecurityContextHolder.getContext().getAuthentication().getName();
     }
 }

@@ -7,15 +7,17 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="events">Sword Events</a>
+                <a class="nav-link" href="/">List Sword Events</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="add-event">Sword Events</a>
+                <a class="nav-link" href="add-event">Add Sword Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link nav-text" href="logout">Logout</a>
             </li>
         </ul>
-        <span class="navbar-text">Log out</span>
     </div>
 </nav>
