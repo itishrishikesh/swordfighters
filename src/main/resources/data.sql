@@ -1,0 +1,4 @@
+insert into SWORD_EVENT (ID, CHALLENGER, DEFENDER, DESCRIPTION, ADMIN_USER_NAME, SCHEDULED_DATE, DONE) values (1002, 'Rishabh Mosby', 'Ted Chaturvedi', 'The battle of the broken hearted', 'admin', CURRENT_DATE(), false);
+insert into SWORD_EVENT (ID, CHALLENGER, DEFENDER, DESCRIPTION, ADMIN_USER_NAME, SCHEDULED_DATE, DONE) values (1003, 'Jitendra Marshal', 'Marshal Singh', 'The battle of the sweet bullies', 'admin', CURRENT_DATE(), false);
+insert into SWORD_EVENT (ID, CHALLENGER, DEFENDER, DESCRIPTION, ADMIN_USER_NAME, SCHEDULED_DATE, DONE) values (1004, 'Priya Schebarski', 'Robin Rai', 'The battle of mean girls', 'admin', CURRENT_DATE(), false);
+insert into SWORD_EVENT (ID, CHALLENGER, DEFENDER, DESCRIPTION, ADMIN_USER_NAME, SCHEDULED_DATE, DONE) values (1005, 'Mehul Stinson', 'Barney Kapoor', 'The battle of mean boys', 'admin', CURRENT_DATE(), false);
