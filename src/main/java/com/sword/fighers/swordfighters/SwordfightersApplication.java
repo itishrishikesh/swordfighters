@@ -8,5 +8,4 @@ public class SwordfightersApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SwordfightersApplication.class, args);
 	}
-
 }

@@ -30,6 +30,8 @@ public class SwordEvent {
         this.scheduledDate = scheduledDate;
         this.done = done;
     }
+    
+    public SwordEvent() {}
 
     public int getId() {
         return id;

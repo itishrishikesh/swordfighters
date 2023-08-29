@@ -50,17 +50,17 @@ public class SwordEventController {
                 event.getDefender(),
                 event.getChallenger(),
                 event.getDescription(),
-                modelMap.get("username").toString(),
+                "",
                 event.getScheduledDate(),
                 false
         );
-        return "redirect:events";
+        return "redirect:/";
     }
 
     @RequestMapping("/delete-event/{id}")
     public String deleteEvent(@PathVariable("id") int id) {
         swordEventService.deleteSwordEvent(id);
-        return "redirect:/events";
+        return "redirect:/";
     }
 
     @RequestMapping("/update-event/{id}")
@@ -76,7 +76,7 @@ public class SwordEventController {
             return "event";
         event.setId(id);
         swordEventService.updateSwordEvent(id, event);
-        return "redirect:/events";
+        return "redirect:/";
     }
     
     private String getUserIdFromSpringSecurity() {
